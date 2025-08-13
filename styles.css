@@ -1,0 +1,171 @@
+/* ---------- VARIABLES ---------- */
+:root{
+  --bg:#070e20;
+  --bg2:#0b1533;
+  --primary:#36a8ff;
+  --accent:#6be0ff;
+  --neon:#43d3ff;
+  --gold:#ffd66b;
+  --text:#e9f2ff;
+  --muted:#a7b4d6;
+  --glass: rgba(255,255,255,0.08);
+  --stroke: rgba(255,255,255,0.18);
+  --shadow: 0 20px 60px rgba(0,0,0,.45), inset 0 0 0 1px var(--stroke);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  color:var(--text);
+  background: radial-gradient(1200px 700px at 15% 15%, #0e1b48 0%, var(--bg) 55%), linear-gradient(120deg, var(--bg2), var(--bg));
+  overflow-x:hidden;
+}
+
+/* subtle animated grid */
+.grid-bg{
+  position:fixed; inset:0; pointer-events:none; opacity:.35;
+  background-image:
+    linear-gradient(transparent 95%, rgba(255,255,255,.07) 96%, transparent 100%),
+    linear-gradient(90deg, transparent 95%, rgba(255,255,255,.07) 96%, transparent 100%);
+  background-size: 60px 60px, 60px 60px;
+  animation:gridMove 20s linear infinite;
+}
+@keyframes gridMove{
+  from{background-position:0 0, 0 0}
+  to{background-position:0 120px, 120px 0}
+}
+
+.site-header{
+  display:flex; gap:24px; align-items:center; justify-content:space-between;
+  padding:20px clamp(16px, 4vw, 48px);
+  position:sticky; top:0; z-index:20;
+  background: linear-gradient(to bottom, rgba(7,14,32,.85), rgba(7,14,32,.55) 70%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.branding{display:flex; gap:14px; align-items:center}
+.logo{width:44px; height:44px}
+.brand-text h1{font-size:clamp(16px,2.2vw,22px); margin:0; letter-spacing:.3px}
+.brand-text p{margin:2px 0 0; color:var(--muted); font-size:12px}
+
+.site-nav{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+.site-nav a{color:var(--text); text-decoration:none; font-weight:600; font-size:14px; opacity:.9}
+.site-nav a:hover{opacity:1}
+.site-nav .cta{padding:10px 16px; border-radius:12px; background:linear-gradient(135deg,var(--primary),var(--accent)); color:#021527; box-shadow:0 8px 30px rgba(67,211,255,.35)}
+
+/* hero */
+.hero{
+  display:grid; grid-template-columns:1.2fr 1fr; gap:32px;
+  padding:40px clamp(16px, 4vw, 48px) 10px;
+}
+.hero .mega{
+  font-family:'Orbitron','Poppins',sans-serif;
+  font-size: clamp(42px, 9vw, 96px);
+  letter-spacing:1px;
+  margin:8px 0 4px;
+  text-shadow: 0 8px 30px rgba(0,0,0,.5), 0 0 18px rgba(67,211,255,.35);
+}
+.hero .mega span{color:var(--accent)}
+.hero .subtitle{
+  font-size:clamp(18px,3.2vw,32px);
+  font-weight:800; letter-spacing:.5px; margin:0 0 10px;
+}
+.kicker{letter-spacing:2px; text-transform:uppercase; color:var(--muted)}
+.tagline{opacity:.9; letter-spacing:.4px}
+
+.glass{
+  background:var(--glass);
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  backdrop-filter: blur(8px) saturate(125%);
+  border:1px solid rgba(255,255,255,.12);
+}
+
+.hero-inner{padding:28px}
+.cta-row{display:flex; gap:12px; margin:18px 0 8px}
+.btn{
+  display:inline-block; padding:14px 20px; border-radius:14px; font-weight:700; text-decoration:none; color:var(--text);
+  border:1px solid rgba(255,255,255,.18);
+}
+.btn.ghost:hover{background:rgba(255,255,255,.06)}
+.btn.primary{
+  color:#07142e; background:linear-gradient(135deg,var(--primary),var(--accent));
+}
+.glow{box-shadow: 0 16px 40px rgba(67,211,255,.35), 0 0 30px rgba(67,211,255,.25) inset}
+
+.quick-stats{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0 0; padding:0; list-style:none;
+}
+.quick-stats li{display:flex; gap:12px; align-items:center; background:rgba(255,255,255,.05); padding:14px; border-radius:14px; border:1px solid rgba(255,255,255,.1)}
+.icon-circle{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#153a78,#0f214b); box-shadow: inset 0 0 12px rgba(67,211,255,.25)}
+.icon-circle img{width:22px}
+
+.hero-visual{position:relative; display:grid; align-items:center; justify-items:center}
+.holo-board{padding:16px; width:min(520px, 90%); margin:20px 0}
+.holo-board img{width:100%; display:block}
+.speaker img{width:min(320px, 70%); filter: drop-shadow(0 30px 50px rgba(0,0,0,.5))}
+
+/* panels */
+.panels{
+  display:grid; grid-template-columns: repeat(2,1fr); gap:20px;
+  padding:24px clamp(16px, 4vw, 48px);
+}
+.panel{padding:22px}
+.panel h4{margin:0 0 10px; font-size:22px}
+
+/* details */
+.details{
+  display:grid; grid-template-columns: repeat(4,1fr); gap:16px;
+  margin:6px clamp(16px, 4vw, 48px);
+  padding:16px;
+}
+.detail-card{
+  display:flex; gap:12px; align-items:center;
+  background:rgba(255,255,255,.06);
+  border-radius:16px; padding:16px; border:1px solid rgba(255,255,255,.1);
+}
+.detail-icon img{width:30px}
+.detail-copy h5{margin:0; color:var(--muted); font-size:13px; letter-spacing:.4px; text-transform:uppercase}
+.detail-copy .big{margin:2px 0 0; font-weight:800; font-size:20px}
+
+/* guidelines + register */
+.guidelines .panel .qr{width:160px; display:block}
+.qr-wrap{display:inline-block; padding:10px; border-radius:14px; background:rgba(67,211,255,.08); border:1px solid rgba(67,211,255,.3)}
+
+/* contacts */
+.contact{margin:20px clamp(16px, 4vw, 48px); padding:20px}
+.contacts{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:10px}
+.contact-card{padding:16px; border-radius:14px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1)}
+.contact-card h5{margin:0 0 6px}
+.contact-card a{color:var(--accent); text-decoration:none; font-weight:700}
+
+.site-footer{
+  margin-top:24px; padding:22px clamp(16px, 4vw, 48px);
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:var(--muted);
+}
+.foot-brand{display:flex; align-items:center; gap:8px}
+.foot-brand img{width:28px}
+
+/* 3D tilt effect */
+.tilt{transform-style:preserve-3d; perspective:1200px}
+.tilt:hover{transform: translateZ(0)}
+.tilt:hover .glass{transform:rotateX(2deg) rotateY(-2deg)}
+.tilt .glass{transition:transform .3s ease}
+
+@media (max-width: 1000px){
+  .hero{grid-template-columns:1fr}
+  .quick-stats{grid-template-columns:1fr 1fr 1fr}
+  .details{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 640px){
+  .site-nav{display:none}
+  .quick-stats{grid-template-columns:1fr; }
+  .panels{grid-template-columns:1fr}
+  .details{grid-template-columns:1fr}
+  .contacts{grid-template-columns:1fr}
+}
